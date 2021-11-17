@@ -3,18 +3,22 @@ from libqtile.command import lazy
 from libqtile.config import Key, KeyChord
 
 mod = "mod4"
-terminal = 'alacritty'
-browser = "firefox"
-code_editor = "code"
-menu_app = "rofi -show drun"
 
+my_apps = [
+    "alacritty",
+    "firefox",
+    "code",
+    "rofi -show drun"
+]
 def init_keymaps():
     keys_list = [
+        # Terminal
+        Key([mod], "Return", lazy.spawn(my_apps[0]), desc="Launch terminal"),
         # Apps
-        Key([mod], "b", lazy.spawn(browser), desc="Open a browser"),
-        Key([mod], "c", lazy.spawn(code_editor), desc="Open code editor"),
+        Key([mod], "b", lazy.spawn(my_apps[1]), desc="Open a browser"),
+        Key([mod], "c", lazy.spawn(my_apps[2]), desc="Open code editor"),
         # menu app
-        Key([mod], "m", lazy.spawn(menu_app), desc="Open menu app"),
+        Key([mod], "m", lazy.spawn(my_apps[3]), desc="Open menu app"),
         # Switch between windows
         Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
         Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
@@ -38,7 +42,6 @@ def init_keymaps():
         # Toggle between split and unsplit sides of stack.
         # Split = all windows displayed
         Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
-        Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
         # Toggle between different layouts as defined below
         Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
         Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),

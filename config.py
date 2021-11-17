@@ -17,12 +17,16 @@ import MyPersonalKey as MyPersonalThings
 colors = MyWidgets.colors
 #Essencials
 mod = "mod4"
-terminal = 'alacritty'
-browser = "firefox"
-code_editor = "code"
-menu_app = "rofi -show drun"
-# my_apps = MyPersonalThings.my_apps
-
+# terminal = 'alacritty'
+# browser = "firefox"
+# code_editor = "code"
+# menu_app = "rofi -show drun"
+my_apps = [
+    "alacritty", # terminal
+    "firefox", # browser
+    "code",  # code editor
+    "rofi -show drun" # menu app
+]
 keys = MyPersonalThings.init_keymaps()
 
 #Groups
