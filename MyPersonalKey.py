@@ -10,6 +10,9 @@ my_apps = [
     "code",
     "rofi -show drun"
 ]
+
+
+# Keymaps that i use
 def init_keymaps():
     keys_list = [
         # Terminal
@@ -19,6 +22,9 @@ def init_keymaps():
         Key([mod], "c", lazy.spawn(my_apps[2]), desc="Open code editor"),
         # menu app
         Key([mod], "m", lazy.spawn(my_apps[3]), desc="Open menu app"),
+        #Kill the process
+        Key([mod, "shift"], "w", lazy.window.kill(), desc="Kill focused window"),
+        
         # Switch between windows
         Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
         Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
@@ -44,9 +50,8 @@ def init_keymaps():
         Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
         # Toggle between different layouts as defined below
         Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-        Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-        Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
-        Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-        Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+        #Restart and shutdown qtile
+        Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
+        Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     ]
     return keys_list

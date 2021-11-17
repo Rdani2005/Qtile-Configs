@@ -12,52 +12,45 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 # Data from other python files
 import MyWidgets as MyWidgets
 import MyPersonalKey as MyPersonalThings
-
-
+import MyLayouts as MyLove
 colors = MyWidgets.colors
+
 #Essencials
 mod = "mod4"
-# terminal = 'alacritty'
-# browser = "firefox"
-# code_editor = "code"
-# menu_app = "rofi -show drun"
 my_apps = [
     "alacritty", # terminal
     "firefox", # browser
     "code",  # code editor
     "rofi -show drun" # menu app
 ]
+
+# Keys, see it on MypersonalKey.py file
 keys = MyPersonalThings.init_keymaps()
 
-#Groups
-groups = [
-    Group("DEV", layout="monadtall"),
-    Group("WEB", layout="monadtall"),
-    Group("GFX", layout="monadtall"),
-    Group("SYS", layout="monadtall"),
-    Group("VBOX", layout="monadtall"),
-    Group("DOC", layout="monadtall"),
-    Group("VIDEOS", layout="monadtall"),
-    Group("CHAT", layout="monadtall")
-]
+# Desktop Groups that I use
+def init_groups():
+    list_group = [
+        Group("DEV", layout="monadtall"),
+        Group("WEB", layout="monadtall"),
+        Group("GFX", layout="monadtall"),
+        Group("SYS", layout="monadtall"),
+        Group("VBOX",layout="monadtall"),
+        Group("DOC", layout="monadtall"),
+        Group("VIDEOS",layout="monadtall"),
+        Group("CHAT", layout="monadtall"),
+        Group("GAMES", layout="monadtall")
+    ]
+    return list_group
 
+
+groups = init_groups()
+
+# Use super + index_number to change between groups
 from libqtile.dgroups import simple_key_binder
 dgroups_key_binder = simple_key_binder("mod4")
 
-
-
-layout_theme = {
-    "border_width": 2,
-    "margin": 7,
-    "border_focus":"#062f5e",
-    "border_normal":"1D2330"
-}
-
-layouts = [
-    layout.Columns(**layout_theme),
-    layout.Max(**layout_theme),
-    layout.MonadTall(**layout_theme),
-]
+# Layouts that I use, see them on MyLayouts.py file
+layouts = MyLove.init_layouts()
 
 widget_defaults = dict(
     font='Ubuntu Mono',
@@ -67,7 +60,40 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-screens = [Screen(top=bar.Bar(MyWidgets.init_widgets_list(),20))]
+#Screen configurations
+screens = [
+    Screen(top=bar.Bar(MyWidgets.init_widgets_list(),opacity=1.0, size=20)),
+    Screen(top=bar.Bar(MyWidgets.init_widgets_list(),opacity=1.0, size=20))
+]
+
+# Multiple screens configurations
+def window_to_prev_group(qtile):
+    if qtile.currentWindow is not None:
+        i = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[i - 1].name)
+
+def window_to_next_group(qtile):
+    if qtile.currentWindow is not None:
+        i = qtile.groups.index(qtile.currentGroup)
+        qtile.currentWindow.togroup(qtile.groups[i + 1].name)
+
+def window_to_previous_screen(qtile):
+    i = qtile.screens.index(qtile.current_screen)
+    if i != 0:
+        group = qtile.screens[i - 1].group.name
+        qtile.current_window.togroup(group)
+
+def window_to_next_screen(qtile):
+    i = qtile.screens.index(qtile.current_screen)
+    if i + 1 != len(qtile.screens):
+        group = qtile.screens[i + 1].group.name
+        qtile.current_window.togroup(group)
+
+def switch_screens(qtile):
+    i = qtile.screens.index(qtile.current_screen)
+    group = qtile.screens[i - 1].group
+    qtile.current_screen.set_group(group)
+
 
 # Drag floating layouts.
 mouse = [
@@ -83,34 +109,26 @@ dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
+
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.
     *layout.Floating.default_float_rules,
-    Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='makebranch'),  # gitk
-    Match(wm_class='maketag'),  # gitk
-    Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(title='branchdialog'),  # gitk
-    Match(title='pinentry'),  # GPG key password entry
+    Match(wm_class='Confirmation'),  # tastyworks exit box
+    Match(wm_class='Qalculate!'),  # qualculate-gtk
+    Match(wm_class='kdenlive'),  # kdenlive
+    Match(wm_class='pinetry-gtk-2'),  # GPG Key pass entry
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
 auto_minimize = True
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
+
 wmname = "LG3D"
 
+
+# Commands to use when you start the Qtile desktop. See the autostart.sh file
 @hook.subscribe.startup_once
 def autostart():
     home = os.path.expanduser('~')
