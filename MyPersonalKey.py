@@ -11,7 +11,6 @@ my_apps = [
     "rofi -show drun"
 ]
 
-
 # Keymaps that i use
 def init_keymaps():
     keys_list = [
@@ -21,9 +20,9 @@ def init_keymaps():
         Key([mod], "b", lazy.spawn(my_apps[1]), desc="Open a browser"),
         Key([mod], "c", lazy.spawn(my_apps[2]), desc="Open code editor"),
         # menu app
-        Key([mod], "m", lazy.spawn(my_apps[3]), desc="Open menu app"),
+        Key([mod, "shift"], "Return", lazy.spawn(my_apps[3]), desc="Open menu app"),
         #Kill the process
-        Key([mod, "shift"], "w", lazy.window.kill(), desc="Kill focused window"),
+        Key([mod, "control"], "w", lazy.window.kill(), desc="Kill focused window"),
         
         # Switch between windows
         Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
@@ -43,15 +42,15 @@ def init_keymaps():
         Key([mod, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
         Key([mod, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
         Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
-        Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+        Key([mod, "control"], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
         # Toggle between split and unsplit sides of stack.
         # Split = all windows displayed
-        Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
+        Key([mod, "control"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
         # Toggle between different layouts as defined below
         Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
         #Restart and shutdown qtile
-        Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
-        Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+        Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
+        Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     ]
     return keys_list

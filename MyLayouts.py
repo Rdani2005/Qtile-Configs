@@ -7,7 +7,6 @@ layout_theme = {
     "border_normal":"1D2330"
 }
 
-
 # Layouts that I use
 def init_layouts():
     layout_list = [

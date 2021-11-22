@@ -1,4 +1,4 @@
-from libqtile import bar, layout, widget, hook, qtile
+from libqtile import widget
 
 # colors
 colors = [
@@ -70,7 +70,7 @@ def init_widgets_list():
             foreground = colors[6],
             background = colors[2],
             fontsize = 15,
-            text="糖"
+            text=""
         ),
         widget.ThermalSensor(
             foreground = colors[6],
@@ -113,6 +113,12 @@ def init_widgets_list():
             foreground = colors[3],
             background = colors[3],
         ),
+        widget.TextBox(
+            foreground = colors[6],
+            background = colors[3],
+            fontsize = 15,
+            text=""
+        ),
         widget.Clock(
             format='%I:%M %p %a %d', 
             background=colors[3]
@@ -131,6 +137,20 @@ def init_widgets_list():
             background = colors[4],
         ),
         widget.TextBox(
+            foreground = colors[6],
+            background = colors[4],
+            fontsize = 15,
+            text="龍"
+        ),
+        
+        widget.Net(
+            fontsize = 10,
+            background = colors[4],
+            format = 'Network: {down} ↓↑ {up}'
+            
+        ),
+
+        widget.TextBox(
             fontsize = 30,
             foreground = colors[4],
             background = colors[4],
@@ -140,6 +160,13 @@ def init_widgets_list():
             fontsize = 30,
             foreground = colors[5],
             background = colors[5],
+        ),
+
+        widget.TextBox(
+            foreground = colors[6],
+            background = colors[5],
+            fontsize = 15,
+            text=""
         ),
         widget.CurrentLayout(
             background = colors[5]
