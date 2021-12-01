@@ -1,8 +1,8 @@
 #!/bin/bash
 
 setxkbmap latam &
-feh --bg-fill ~/wallpaper/wallpaper.png &
-picom --no-vsync &
+feh --bg-fill ~/wallpaper/wallpaper.jpeg &
+picom &
 
 udiskie -t &
 nm-applet &

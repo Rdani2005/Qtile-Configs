@@ -1,5 +1,5 @@
 from libqtile import widget
-
+# TODO: Make changes to this file. It is VERY long
 # colors
 colors = [
     "#26c70a", # group text active color
@@ -75,7 +75,7 @@ def init_widgets_list():
         widget.ThermalSensor(
             foreground = colors[6],
             background = colors[2],
-            threshold = 50,
+            threshold = 70,
             tag_sensor = "Core 0",
             fmt = "T1: {}",
             fontsize = 10
@@ -83,7 +83,7 @@ def init_widgets_list():
         widget.ThermalSensor(
             foreground = colors[6],
             background = colors[2],
-            threshold = 30,
+            threshold = 70,
             tag_sensor = "Core 1",
             fmt = "T2: {}",
             fontsize = 10
@@ -116,7 +116,7 @@ def init_widgets_list():
         widget.TextBox(
             foreground = colors[6],
             background = colors[3],
-            fontsize = 15,
+            fontsize = 10,
             text=""
         ),
         widget.Clock(

@@ -8,7 +8,8 @@ my_apps = [
     "alacritty",
     "firefox",
     "code",
-    "rofi -show drun"
+    "rofi -show drun",
+    "nautilus"
 ]
 
 # Keymaps that i use
@@ -23,7 +24,8 @@ def init_keymaps():
         Key([mod, "shift"], "Return", lazy.spawn(my_apps[3]), desc="Open menu app"),
         #Kill the process
         Key([mod, "control"], "w", lazy.window.kill(), desc="Kill focused window"),
-        
+        # Open File browser
+        Key([mod], "m", lazy.spawn(my_apps[4]), desc="Open the file browser"),
         # Switch between windows
         Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
         Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),

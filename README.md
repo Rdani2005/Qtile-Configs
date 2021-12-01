@@ -4,7 +4,7 @@ This are my personal configs for Qtile window manager. For using this I recommen
 
 ## Drivers
 
-for using this, in my PC I installed the next drivers. This config is made in <a href="https://archlinux.org/">Arch Linux</a> and it was installed on a <a href="https://www.amazon.com/-/es/Latitude-E6440-i7-4600M-Windows-renovado/dp/B07GCRY8NC">Dell E6640</a> notebook.
+for using this, in my PC I installed the next drivers. This config is made in <a href="https://archlinux.org/">Arch Linux</a> and it was installed on a <a href="https://www.amazon.com/-/es/Latitude-E6440-i7-4600M-Windows-renovado/dp/B07GCRY8NC">Dell E6440</a> notebook.
 Some of the drivers that I'm using is for my PC components. You should check out wich drivers are the right ones for your PC first.
 ### Video
 <ul>
@@ -36,7 +36,7 @@ I decided to use the next programs
   <li><a href="https://archlinux.org/packages/extra/x86_64/geeqie/">geqiee</a></li>
   <li><a href="https://wiki.archlinux.org/title/VLC_media_player_(Espa%C3%B1ol)">vlc</a></li>
   <li><a href="https://archlinux.org/packages/community/x86_64/lxappearance/">lxappearance</a></li>
-  <li><a href="https://wiki.archlinux.org/title/Thunar_(Espa%C3%B1ol)">Thunar</a></li>
+  <li><a href="https://archlinux.org/packages/extra/x86_64/nautilus/">Nautilus</a></li>
 </ul>
 
 ## How is it built?
