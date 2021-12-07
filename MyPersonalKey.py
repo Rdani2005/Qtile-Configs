@@ -20,6 +20,7 @@ def init_keymaps():
         # Apps
         Key([mod], "b", lazy.spawn(my_apps[1]), desc="Open a browser"),
         Key([mod], "c", lazy.spawn(my_apps[2]), desc="Open code editor"),
+        #key([mod], "w", lazy.spawn("/usr/bin/libreoffice --writer"), desc="Open Libre Office Writter"),
         # menu app
         Key([mod, "shift"], "Return", lazy.spawn(my_apps[3]), desc="Open menu app"),
         #Kill the process
