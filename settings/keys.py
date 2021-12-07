@@ -57,3 +57,5 @@ def init_keymaps():
         Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     ]
     return keys_list
+
+keys = init_keymaps()

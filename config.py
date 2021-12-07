@@ -8,19 +8,21 @@ from libqtile import hook
 from libqtile.lazy import lazy
 from libqtile.command import lazy
 from libqtile import bar, layout, widget, hook, qtile
-from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
+from libqtile.config import Click, Drag, Group, Match, Screen
 # Data from other python files
-import MyPersonalKey as MyPersonalThings
 import MyPersonalGroups as MyWorkspace
 import MouseConfigs as ExtrasConfigs
 import MyWidgets as MyWidgets
 import MyLayouts as MyLove
 
+
+# -------Changes----------
+from settings.keys import mod, keys
 # Declaration of using the super key
-mod = "mod4"
+
 
 # Keys, see it on MypersonalKey.py file
-keys = MyPersonalThings.init_keymaps()
+
 
 # Layouts that I use, see them on MyLayouts.py file
 layouts = MyLove.init_layouts()
