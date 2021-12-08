@@ -51,6 +51,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "Tab", lazy.next_layout()),
     #Restart and shutdown qtile
     ([mod, "control"], "r", lazy.restart()),
-    ([mod, "control"], "q", lazy.shutdown())
-
+    ([mod, "control"], "q", lazy.shutdown()),
+    #------------Hardware configs-----------------
+    ([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
+    ([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
+    ([], "XF86AudioMute", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ toggle"))
 ]]

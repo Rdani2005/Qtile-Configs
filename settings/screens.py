@@ -5,11 +5,11 @@ from .widgets import primary_widgets
 import subprocess
 
 
-def status_bar(widgets):
+def my_bar(widgets):
     return bar.Bar(widgets, 20, opacity=0.92)
 
 
-screens = [Screen(top=status_bar(primary_widgets))]
+screens = [Screen(top=my_bar(primary_widgets))]
 
 xrandr = "xrandr | grep -w 'connected' | cut -d ' ' -f 2 | wc -l"
 
@@ -29,4 +29,4 @@ else:
 
 if connected_monitors > 1:
     for _ in range(1, connected_monitors):
-        screens.append(Screen(top=status_bar(primary_widgets)))
+        screens.append(Screen(top=my_bar(primary_widgets)))
