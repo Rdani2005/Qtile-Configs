@@ -2,8 +2,7 @@
 from libqtile.lazy import lazy
 from libqtile.command import lazy
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
-
-mod = "mod4"
+from .keys import mod
 
 def UsingMouseLayouts():
     mouse_list = [
@@ -15,3 +14,4 @@ def UsingMouseLayouts():
     ]
     return mouse_list
 
+mouse = UsingMouseLayouts()
