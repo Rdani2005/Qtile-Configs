@@ -184,3 +184,12 @@ def init_widgets_list():
     ]
     return widget_list
 
+primary_widgets = init_widgets_list()
+
+widget_defaults = dict(
+    font='Ubuntu Mono',
+    fontsize=12,
+    padding=2,
+    background="#111211"
+)
+extension_defaults = widget_defaults.copy()
