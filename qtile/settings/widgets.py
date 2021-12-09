@@ -53,7 +53,7 @@ primary_widgets = [
     icon(bg="first", text=' '),
     widget.Net(**base_conf(bg='first'), interface='wlp3s0'),
     widget.CurrentLayoutIcon(**base_conf(bg='second'), scale=0.65),
-    widget.CurrentLayout(**base_conf(bg='color2'), padding=5),
+    widget.CurrentLayout(**base_conf(bg='second'), padding=5),
     icon(bg="third", fontsize=17, text=' '),
     widget.Clock(**base_conf(bg='third'), format='%d/%m/%Y - %H:%M '),
     widget.Systray(background=colors['dark'], padding=5),
