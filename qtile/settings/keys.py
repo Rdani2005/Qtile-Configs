@@ -9,7 +9,8 @@ my_apps = [
     "firefox",
     "code",
     "rofi -show drun",
-    "nautilus"
+    "nautilus",
+    "rofi -show"
 ]
 
 # Keymaps that i use
@@ -20,10 +21,14 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Browser and Code Editor
     ([mod], "b", lazy.spawn(my_apps[1])),
     ([mod], "c", lazy.spawn(my_apps[2])),
-    # Menu App
+    # App menu and window manager
     ([mod, "shift"], "Return", lazy.spawn(my_apps[3])),
+    ([mod, "shift"], "m", lazy.spawn(my_apps[5])),
     # File browser
     ([mod], "m", lazy.spawn(my_apps[4])),
+    # Screenshot
+    ([mod], "s", lazy.spawn("scrot")),
+    ([mod, "shift"], "s", lazy.spawn("scrot -s")),
     #----------Some Qtile Configs---------------------
     # Exit an app
     ([mod, "control"], "w", lazy.window.kill()),
@@ -52,6 +57,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     #Restart and shutdown qtile
     ([mod, "control"], "r", lazy.restart()),
     ([mod, "control"], "q", lazy.shutdown()),
+    #------------Screens-------------
+    # Switch focus of monitors
+    ([mod], "period", lazy.next_screen()),
+    ([mod], "comma", lazy.prev_screen()),
     #------------Hardware configs-----------------
     ([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
     ([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),

@@ -1,0 +1,42 @@
+{
+    "active": [
+        "ffffff",
+        "ffffff"
+    ],
+    "inactive": [
+        "#4f5052",
+        "#4f5052"
+    ],
+    "first": [
+        "#3CD2FA",
+        "#3CD2FA"
+    ],
+    "second": [
+        "#FA6696",
+        "#FA6696"
+    ],
+    "third": [
+        "#FAF07F",
+        "#FAF07F"
+    ],
+    "text": [
+        "f1ffff",
+        "f1ffff"
+    ],
+    "dark": [
+        "#111211",
+        "#111211" 
+    ],
+    "light": [
+        "f1ffff",
+        "f1ffff"
+    ],
+    "focus": [
+        "#E73CFA",
+        "#E73CFA"
+    ],
+    "grey": [
+        "#777778",
+        "#777778"
+    ]
+}
