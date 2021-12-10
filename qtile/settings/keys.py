@@ -1,21 +1,25 @@
+# ----------- Libraries --------------------
 from libqtile.lazy import lazy
 from libqtile.command import lazy
 from libqtile.config import Key, KeyChord
 
 mod = "mod4"
 
+# ---------- Personal Apps ---------------------------
 my_apps = [
-    "alacritty",
-    "firefox",
-    "code",
-    "rofi -show drun",
-    "nautilus",
-    "rofi -show"
+    "alacritty", # Terminal that I use
+    "firefox", # Web Bowser
+    "code", # Code editor
+    "rofi -show drun", # App menu
+    "nautilus", # Files Browser
+    "rofi -show", # Window menu
+    "scrot", # Complete screenshot
+    "scrot -s" # Screenshot for an specific zone
 ]
 
-# Keymaps that i use
+# --------------- Keymaps that I use -----------------
 keys = [Key(key[0], key[1], *key[2:]) for key in [
-    #---------Apps that I need--------------------
+    #--------- Apps that I need --------------------
     # Terminal
     ([mod], "Return", lazy.spawn(my_apps[0])),
     # Browser and Code Editor
@@ -27,9 +31,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # File browser
     ([mod], "m", lazy.spawn(my_apps[4])),
     # Screenshot
-    ([mod], "s", lazy.spawn("scrot")),
-    ([mod, "shift"], "s", lazy.spawn("scrot -s")),
-    #----------Some Qtile Configs---------------------
+    ([mod], "s", lazy.spawn(my_apps[6])),
+    ([mod, "shift"], "s", lazy.spawn(my_apps[7])),
+    #---------- Some Qtile Configs ---------------------
     # Exit an app
     ([mod, "control"], "w", lazy.window.kill()),
     # Focus Windows
@@ -57,11 +61,12 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     #Restart and shutdown qtile
     ([mod, "control"], "r", lazy.restart()),
     ([mod, "control"], "q", lazy.shutdown()),
-    #------------Screens-------------
+    #------------ Screens -------------
     # Switch focus of monitors
     ([mod], "period", lazy.next_screen()),
     ([mod], "comma", lazy.prev_screen()),
-    #------------Hardware configs-----------------
+    #------------ Hardware configs -----------------
+    #Volume (low, max, mute)
     ([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")),
     ([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")),
     ([], "XF86AudioMute", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ toggle"))

@@ -1,9 +1,9 @@
-# Libraries
+# --------------- Libraries ------------------------
 from libqtile.lazy import lazy
 from libqtile.command import lazy
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from .keys import mod
-
+# --------- Mouse Configs ----------------------------
 def UsingMouseLayouts():
     mouse_list = [
         Drag([mod], "Button1", lazy.window.set_position_floating(),

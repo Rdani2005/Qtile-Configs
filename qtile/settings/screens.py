@@ -1,15 +1,19 @@
+# ---------------- Libraries ----------------------
 from libqtile.config import Screen
 from libqtile import bar
 from libqtile.log_utils import logger
-from .widgets import primary_widgets
+from .widgets import primary_widgets, secundary_widgets
 import subprocess
 
-
+# ----------------- Method ---------------------
+# returns the nav bar I use
 def my_bar(widgets):
-    return bar.Bar(widgets, 20, opacity=0.92)
+    return bar.Bar(widgets, 20, opacity=1)
 
 
 screens = [Screen(top=my_bar(primary_widgets))]
+
+# ---------------- Multiple screens configs ------------
 
 xrandr = "xrandr | grep -w 'connected' | cut -d ' ' -f 2 | wc -l"
 
@@ -29,4 +33,4 @@ else:
 
 if connected_monitors > 1:
     for _ in range(1, connected_monitors):
-        screens.append(Screen(top=my_bar(primary_widgets)))
+        screens.append(Screen(top=my_bar(secundary_widgets)))
