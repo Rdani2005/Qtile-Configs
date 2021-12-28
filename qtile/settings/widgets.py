@@ -70,6 +70,9 @@ def my_workspaces():
 #------------ Widget List ------------------------
 # Main widgets (used for the main screen)
 primary_widgets = [
+    separator(),
+    icon(text="  "),
+    separator(),
     *my_workspaces(),
     #First Group
     beggining(),
@@ -90,6 +93,9 @@ primary_widgets = [
 ]
 # Secundary widgets (used for external screen settings)
 secundary_widgets = [
+    separator(),
+    icon(text="  "),
+    separator(),
     *my_workspaces(),
     
     beggining(fg = 'first', bg = 'dark'),
