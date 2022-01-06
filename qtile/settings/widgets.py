@@ -35,14 +35,14 @@ def beggining(fg = 'first', bg='dark'):
         padding = -2,
         text=""
     )
-
-def end_widget_group(fg = 'first', bg='dark'):
-    return widget.TextBox(
-        **base_conf(fg, bg),
-        fontsize = 30,
-        padding = -1.8,
-        text=""
-    )
+# Stopped using this, but I'll consider if using this or not in a future
+# def end_widget_group(fg = 'first', bg='dark'):
+#     return widget.TextBox(
+#         **base_conf(fg, bg),
+#         fontsize = 30,
+#         padding = -1.8,
+#         text=""
+#     )
 # Returns the workspace that I need
 def my_workspaces():
     return [
