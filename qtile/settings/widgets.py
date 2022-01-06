@@ -72,7 +72,7 @@ def my_workspaces():
 primary_widgets = [
     separator(),
     *my_workspaces(),
-    #First Group
+    # First Group (battery, updates)
     beggining(),
     icon(bg="first", fontsize=17, text="⟳"),
     widget.CheckUpdates(
@@ -82,22 +82,16 @@ primary_widgets = [
         display_format="{updates} Updates",
         mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('alacritty' + ' -e sudo pacman -Syu')}
     ),
-    # widget.CheckUpdates(
-    #     update_interval = 1800,
-    #     distro = "Arch_checkupdates",
-    #     display_format = "{updates} Updates",
-    #     foreground = colors[2],
-    #     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
-    #     background = colors[5]
-    # ),
     icon(bg="first", fontsize=17, text="  "),
     widget.Battery(**base_conf(bg="first"), padding=5),
+    # Second Group (layout)
     beggining(fg = 'second', bg = 'first'),
     widget.CurrentLayoutIcon(**base_conf(bg='second'), scale=0.65),
     widget.CurrentLayout(**base_conf(bg='second'), padding=5),
     beggining(fg = 'third', bg = 'second'),
     icon(bg="third", fontsize=17, text=' '),
     widget.Clock(**base_conf(bg='third'), format='%d/%m/%Y - %H:%M '),
+    # third group (system info)
     beggining(fg='dark', bg='third'),
     widget.Systray(background=colors['dark'], padding=5),
     separator(),
