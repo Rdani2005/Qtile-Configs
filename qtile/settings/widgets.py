@@ -71,22 +71,33 @@ def my_workspaces():
 # Main widgets (used for the main screen)
 primary_widgets = [
     separator(),
-    icon(text="  "),
-    separator(),
     *my_workspaces(),
     #First Group
     beggining(),
-    icon(bg="first", text=' '),
-    widget.Net(**base_conf(bg='first'), interface='wlp3s0'),
-    
+    icon(bg="first", fontsize=17, text="⟳"),
+    widget.CheckUpdates(
+        **base_conf(bg='first'),
+        update_interval = 1800,
+        distro = "Arch_checkupdates",
+        display_format="{updates} Updates",
+        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('alacritty' + ' -e sudo pacman -Syu')}
+    ),
+    # widget.CheckUpdates(
+    #     update_interval = 1800,
+    #     distro = "Arch_checkupdates",
+    #     display_format = "{updates} Updates",
+    #     foreground = colors[2],
+    #     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
+    #     background = colors[5]
+    # ),
+    icon(bg="first", fontsize=17, text="  "),
+    widget.Battery(**base_conf(bg="first"), padding=5),
     beggining(fg = 'second', bg = 'first'),
     widget.CurrentLayoutIcon(**base_conf(bg='second'), scale=0.65),
     widget.CurrentLayout(**base_conf(bg='second'), padding=5),
-    
     beggining(fg = 'third', bg = 'second'),
     icon(bg="third", fontsize=17, text=' '),
     widget.Clock(**base_conf(bg='third'), format='%d/%m/%Y - %H:%M '),
-    
     beggining(fg='dark', bg='third'),
     widget.Systray(background=colors['dark'], padding=5),
     separator(),
@@ -94,25 +105,17 @@ primary_widgets = [
 # Secundary widgets (used for external screen settings)
 secundary_widgets = [
     separator(),
-    icon(text="  "),
-    separator(),
     *my_workspaces(),
-    
     beggining(fg = 'first', bg = 'dark'),
-    icon(bg = "first", fontsize=17, text=' '),
+    widget.CPU(**base_conf(bg="first")),
+    icon(bg = "first", fontsize=20, text=' '),
     widget.Memory(**base_conf(bg='first')),
-    end_widget_group(fg = 'first', bg = 'dark'),
-    separator(),
-    beggining(fg = 'second', bg = 'dark'),
+    beggining(fg = 'second', bg = 'first'),
     widget.CurrentLayoutIcon(**base_conf(bg='second'), scale=0.65),
     widget.CurrentLayout(**base_conf(bg='second'), padding=5),
-    end_widget_group(fg='second', bg = 'dark'),
-    separator(),
-
-    beggining(fg = 'third', bg = 'dark'),
+    beggining(fg = 'third', bg = 'second'),
     icon(bg="third", fontsize=17, text=' '),
     widget.Clock(**base_conf(bg='third'), format='%d/%m/%Y - %H:%M '),
-    end_widget_group(fg='third', bg='dark'),
     separator(),
 ]
 # Defaults widgets
