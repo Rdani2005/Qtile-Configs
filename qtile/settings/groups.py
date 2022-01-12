@@ -5,10 +5,11 @@ from libqtile.config import Group
 # yay -S nerd-fonts-ubuntu-mono
 groups = [
     Group(i) for i in [
+        "  ",
         "  ",
         "  ",
         "  ",
-        "  ",
-        "  ",
+        "  ",
+        " ♥ ",
     ]
 ]

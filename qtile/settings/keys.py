@@ -9,7 +9,7 @@ mod = "mod4"
 my_apps = [
     "alacritty", # Terminal that I use
     "firefox", # Web Bowser
-    "code", # Code editor
+    "codium", # Code editor CHANGED. yay -S codium
     "rofi -show drun", # App menu
     "nautilus", # Files Browser
     "rofi -show", # Window menu
