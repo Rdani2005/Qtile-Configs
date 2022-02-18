@@ -33,7 +33,9 @@ def beggining(fg = 'first', bg='dark'):
         **base_conf(fg, bg),
         fontsize = 30,
         padding = -2,
-        text=""
+        # text=""
+        text = '\ue0be',
+        font="Inconsolata for powerline"
     )
 # Stopped using this, but I'll consider if using this or not in a future
 # def end_widget_group(fg = 'first', bg='dark'):
@@ -110,11 +112,12 @@ secundary_widgets = [
     beggining(fg = 'third', bg = 'second'),
     icon(bg="third", fontsize=17, text=' '),
     widget.Clock(**base_conf(bg='third'), format='%d/%m/%Y - %H:%M '),
+    beggining(fg='dark', bg='third'),
     separator(),
 ]
 # Defaults widgets
 widget_defaults = {
-    'font': 'UbuntuMono Nerd Font Bold',
+    'font': 'Inconsolata for powerline',
     'fontsize': 12,
     'padding': 2,
 
