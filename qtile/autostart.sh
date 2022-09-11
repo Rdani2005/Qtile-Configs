@@ -1,5 +1,4 @@
 #!/bin/bash
-
-feh --bg-fill ~/wallpaper/11.jpg &
-
+picom &
+feh --bg-fill ~/wallpapers/1.jpg
 
