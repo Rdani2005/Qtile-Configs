@@ -1,0 +1,5 @@
+2594 586578-05-07 16:56:21.900 -0600
+1713538516.897045 iTermASCIITexture.m:132 (-[iTermASCIITexture initWithAttributes:descriptor:device:creation:]): Couldn't produce image for ascii 120
+1713538516.897140 iTermASCIITexture.m:132 (-[iTermASCIITexture initWithAttributes:descriptor:device:creation:]): Couldn't produce image for ascii 122
+1713538516.897221 iTermASCIITexture.m:132 (-[iTermASCIITexture initWithAttributes:descriptor:device:creation:]): Couldn't produce image for ascii 124
+1713538516.897301 iTermASCIITexture.m:132 (-[iTermASCIITexture initWithAttributes:descriptor:device:creation:]): Couldn't produce image for ascii 126
